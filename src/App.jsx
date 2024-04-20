@@ -60,6 +60,7 @@ export default function App() {
                     onChange={handleChange}
                     id={id + "-email"}
                     name="email"
+                    value={formData.email}
                 />
                 <input 
                     type="password" 
@@ -68,6 +69,7 @@ export default function App() {
                     onChange={handleChange}
                     id={id + "-password"}
                     name="password"
+                    value={formData.password}
                 />
                 <input 
                     type="password" 
@@ -76,6 +78,7 @@ export default function App() {
                     onChange={handleChange}
                     id={id + "-confirmPassword"}
                     name="confirmPassword"
+                    value={formData.confirmPassword}
                 />
                 
                 <div className="form--marketing">
@@ -84,6 +87,7 @@ export default function App() {
                         type="checkbox"
                         onChange={handleChange}
                         name="newsletter"
+                        checked={formData.newsletter}
                         
                     />
                     <label htmlFor="okayToEmail">I want to join the newsletter</label>
