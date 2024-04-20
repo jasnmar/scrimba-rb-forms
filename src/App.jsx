@@ -37,7 +37,7 @@ export default function App() {
 
         
     }
-    console.log('formData: ', formData)
+
     function handleChange(event) {
       console.log('event.target: ', event.target)
       const {name, value, type, checked} = event.target
@@ -47,7 +47,7 @@ export default function App() {
           [name]: type === "checkbox" ? checked : value
         }
       })
-      console.log('formData: ', formData)
+      
     }
 
     return (
