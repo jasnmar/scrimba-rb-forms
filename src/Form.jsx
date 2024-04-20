@@ -7,7 +7,8 @@ export default function Form() {
             email: "", 
             comments: "", 
             isFriendly: true,
-            employment: ""
+            employment: "",
+            favColor: ""
         }
     )
     console.log('formData: ', formData)
@@ -70,6 +71,7 @@ export default function Form() {
                     name="employment"
                     value="unemployed"
                     onChange={handleChange}
+                    checked={formData.employment === "unemployed"}
                 />
                 <label htmlFor="unemployed">Unemployed</label>
                 <br />
@@ -80,6 +82,7 @@ export default function Form() {
                     name="employment"
                     value="part-time"
                     onChange={handleChange}
+                    checked={formData.employment === "part-time"}
                 />
                 <label htmlFor="part-time">Part-time</label>
                 <br />
@@ -90,11 +93,29 @@ export default function Form() {
                     name="employment"
                     value="full-time"
                     onChange={handleChange}
+                    checked={formData.employment === "full-time"}
                 />
                 <label htmlFor="full-time">Full-time</label>
                 <br />
                 
             </fieldset>
+            <label htmlFor="favColor">What is your favorite color?</label>
+            <br />
+            <select 
+                id="favColor"
+                value={formData.favColor}
+                name="favColor"
+                onChange={handleChange}
+            >
+                <option value="">--Choose--</option>
+                <option value="red">Red</option>
+                <option value="orange">Orange</option>
+                <option value="yellow">Yellow</option>
+                <option value="green">Green</option>
+                <option value="blue">Blue</option>
+                <option value="indigo">Indigo</option>
+                <option value="violet">Violet</option>
+            </select>
         </form>
     )
 }
