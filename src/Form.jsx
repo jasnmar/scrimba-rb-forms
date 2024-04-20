@@ -29,49 +29,49 @@ export default function Form() {
     }
     return (
         <form onSubmit={handleSubmit}>
-            <label htmlFor="firstName">First Name</label>
+            <label htmlFor={id + "-firstName"}>First Name</label>
             <input
                 type="text"
                 placeholder="First Name"
                 onChange={handleChange}
                 name="firstName"
                 value={formData.firstName}
-                id="firstName"
+                id={id + "-firstName"}
             />
-            <label htmlFor="lastName">Last Name</label>
+            <label htmlFor={id + "-lastName"}>Last Name</label>
             <input
                 type="text"
                 placeholder="Last Name"
                 onChange={handleChange}
                 name="lastName"
                 value={formData.lastName}
-                id="lastName"
+                id={id + "-lastName"}
             />
-            <label htmlFor="email">Email Address</label>
+            <label htmlFor={id + "-email"}>Email Address</label>
             <input
                 type="email"
                 placeholder="Email"
                 onChange={handleChange}
                 name="email"
                 value={formData.email}
-                id="email"
+                id={id + "-email"}
             />
-            <label htmlFor="comments">Comments</label>
+            <label htmlFor={id + "-comments"}>Comments</label>
             <textarea 
                 value={formData.comments}
                 placeholder="Comments"
                 onChange={handleChange}
                 name="comments"
-                id="comments"
+                id={id + "-comments"}
             />
             <input 
                 type="checkbox" 
-                id="isFriendly" 
+                id={id + "-isFriendly"} 
                 checked={formData.isFriendly}
                 onChange={handleChange}
                 name="isFriendly"
             />
-            <label htmlFor="isFriendly">Are you friendly?</label>
+            <label htmlFor={id + "-isFriendly"}>Are you friendly?</label>
             <br />
             <br />
             
@@ -80,42 +80,42 @@ export default function Form() {
                 
                 <input 
                     type="radio"
-                    id="unemployed"
+                    id={id + "-unemployed"}
                     name="employment"
                     value="unemployed"
                     onChange={handleChange}
                     checked={formData.employment === "unemployed"}
                 />
-                <label htmlFor="unemployed">Unemployed</label>
+                <label htmlFor={id + "-unemployed"}>Unemployed</label>
                 <br />
                 
                 <input 
                     type="radio"
-                    id="part-time"
+                    id={id + "-part-time"}
                     name="employment"
                     value="part-time"
                     onChange={handleChange}
                     checked={formData.employment === "part-time"}
                 />
-                <label htmlFor="part-time">Part-time</label>
+                <label htmlFor={id + "-part-time"}>Part-time</label>
                 <br />
                 
                 <input 
                     type="radio"
-                    id="full-time"
+                    id={id + "-full-time"}
                     name="employment"
                     value="full-time"
                     onChange={handleChange}
                     checked={formData.employment === "full-time"}
                 />
-                <label htmlFor="full-time">Full-time</label>
+                <label htmlFor={id + "-full-time"}>Full-time</label>
                 <br />
                 
             </fieldset>
-            <label htmlFor="favColor">What is your favorite color?</label>
+            <label htmlFor={id + "-favColor"}>What is your favorite color?</label>
             <br />
             <select 
-                id="favColor"
+                id={id + "-favColor"}
                 value={formData.favColor}
                 name="favColor"
                 onChange={handleChange}
