@@ -1,4 +1,5 @@
-import { useState } from "react"
+import { useState, useId } from "react"
+
 export default function Form() {
     const [formData, setFormData] = useState(
         {
@@ -11,7 +12,8 @@ export default function Form() {
             favColor: ""
         }
     )
-    console.log('formData: ', formData)
+
+    const id = useId()
     function handleChange(event) {
         const {name, value, type, checked} = event.target
         setFormData(prevFormData => {
@@ -21,35 +23,46 @@ export default function Form() {
             }
         })
     }
-    
+    function handleSubmit(e) {
+        e.preventDefault()
+        console.log(formData)
+    }
     return (
-        <form>
+        <form onSubmit={handleSubmit}>
+            <label htmlFor="firstName">First Name</label>
             <input
                 type="text"
                 placeholder="First Name"
                 onChange={handleChange}
                 name="firstName"
                 value={formData.firstName}
+                id="firstName"
             />
+            <label htmlFor="lastName">Last Name</label>
             <input
                 type="text"
                 placeholder="Last Name"
                 onChange={handleChange}
                 name="lastName"
                 value={formData.lastName}
+                id="lastName"
             />
+            <label htmlFor="email">Email Address</label>
             <input
                 type="email"
                 placeholder="Email"
                 onChange={handleChange}
                 name="email"
                 value={formData.email}
+                id="email"
             />
+            <label htmlFor="comments">Comments</label>
             <textarea 
                 value={formData.comments}
                 placeholder="Comments"
                 onChange={handleChange}
                 name="comments"
+                id="comments"
             />
             <input 
                 type="checkbox" 
@@ -116,6 +129,7 @@ export default function Form() {
                 <option value="indigo">Indigo</option>
                 <option value="violet">Violet</option>
             </select>
+            <button type="submit">Submit</button>
         </form>
     )
 }
