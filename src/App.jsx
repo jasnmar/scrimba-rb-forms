@@ -1,6 +1,13 @@
-
+import { useState, useId} from "react"
 
 export default function App() {
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+    confirmPassword: "",
+    newsletter: false
+  })
+  const id = useId();
     
     /**
      * Challenge: Connect the form to local state
@@ -20,8 +27,29 @@ export default function App() {
     
     function handleSubmit(event) {
         event.preventDefault()
+        const isValid = (formData.password === formData.confirmPassword) 
+        if (isValid) {
+          console.log('Successrully signed up')
+          formData.newsletter && console.log("Thanks for signing up for our newsletter!")
+         } else {
+          console.log("Passwords do not match")
+         }
+
+        
     }
-    
+    console.log('formData: ', formData)
+    function handleChange(event) {
+      console.log('event.target: ', event.target)
+      const {name, value, type, checked} = event.target
+      setFormData(prevFormData => {
+        return {
+          ...prevFormData,
+          [name]: type === "checkbox" ? checked : value
+        }
+      })
+      console.log('formData: ', formData)
+    }
+
     return (
         <div className="form-container">
             <form className="form" onSubmit={handleSubmit}>
@@ -29,22 +57,33 @@ export default function App() {
                     type="email" 
                     placeholder="Email address"
                     className="form--input"
+                    onChange={handleChange}
+                    id={id + "-email"}
+                    name="email"
                 />
                 <input 
                     type="password" 
                     placeholder="Password"
                     className="form--input"
+                    onChange={handleChange}
+                    id={id + "-password"}
+                    name="password"
                 />
                 <input 
                     type="password" 
                     placeholder="Confirm password"
                     className="form--input"
+                    onChange={handleChange}
+                    id={id + "-confirmPassword"}
+                    name="confirmPassword"
                 />
                 
                 <div className="form--marketing">
                     <input
-                        id="okayToEmail"
+                        id={id + "okayToEmail"}
                         type="checkbox"
+                        onChange={handleChange}
+                        name="newsletter"
                         
                     />
                     <label htmlFor="okayToEmail">I want to join the newsletter</label>
